@@ -55,10 +55,6 @@ GEM
       gherkin (>= 2.3.5)
       json (>= 1.4.6)
       term-ansicolor (>= 1.0.5)
-    cucumber-rails (0.4.0)
-      cucumber (>= 0.10.1)
-      nokogiri (>= 1.4.4)
-      rack-test (>= 0.5.7)
     culerity (0.2.15)
     database_cleaner (0.6.6)
     diff-lcs (1.1.2)
@@ -154,8 +150,6 @@ PLATFORMS
 DEPENDENCIES
   capistrano (= 2.5.19)
   capybara
-  cucumber
-  cucumber-rails
   database_cleaner
   fuubar
   fuubar-cucumber
@@ -164,4 +158,5 @@ DEPENDENCIES
   paperclip
   rails (= 3.0.5)
   rake (= 0.8.7)
+  rspec (= 2.5.0)
   rspec-rails (= 2.5.0)

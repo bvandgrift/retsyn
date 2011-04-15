@@ -9,9 +9,8 @@ gem "mysql2"
 
 group :test do
   gem "mocha", '0.9.10', :require => nil
+  gem "rspec", '2.5.0'
   gem "rspec-rails", "2.5.0"
-  gem "cucumber"
-  gem "cucumber-rails"
   gem "capybara"
   gem "database_cleaner"
   gem "fuubar"

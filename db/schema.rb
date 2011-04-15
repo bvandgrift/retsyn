@@ -10,13 +10,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110325185354) do
+ActiveRecord::Schema.define(:version => 20110401185029) do
+
+  create_table "reports", :force => true do |t|
+    t.string   "title",                 :null => false
+    t.integer  "user_id",               :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "raw_file_file_name"
+    t.string   "raw_file_content_type"
+    t.integer  "raw_file_file_size"
+    t.datetime "raw_file_updated_at"
+  end
 
   create_table "users", :force => true do |t|
-    t.string   "name",       :null => false
-    t.string   "public_key", :null => false
+    t.string   "name",                       :null => false
+    t.string   "public_key", :limit => 1024, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["public_key"], :name => "index_users_on_public_key", :length => {"public_key"=>255}
 
 end
