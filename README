@@ -1,1 +1,7 @@
 # see http://ben.vandgrift/com/--
+
+#retsyn certs:
+
+ - default = default user.  pp: test
+ - admin = admin user. pp: admin
+ - user = authenticated non-admin user.  pp: test
