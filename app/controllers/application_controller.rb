@@ -1,4 +1,3 @@
-require 'pp'
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
@@ -10,6 +9,8 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user
   def current_user
-    session[:current_user_id] ||= User.find_by_public_key(request.env['SSL_CLIENT_CERT'])
+    client_cert = request.env['SSL_CLIENT_CERT']
+    return nil if client_cert.nil? || client_cert.blank?
+    @current_user ||= User.find_by_public_key(client_cert)
   end
 end
