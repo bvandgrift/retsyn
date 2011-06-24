@@ -1,0 +1,26 @@
+html {
+  background-color: #002B35;
+  margin: 0;  
+  padding: 0;
+}
+
+body {
+  width: 860px;
+  margin: 0px auto;
+  background-color: #eee;
+  line-height: 1em;
+}
+
+section#heading {
+  background-color: #555;
+  color: #ccc;
+  line-height: 1em;
+  padding: 10px;
+  text-align: right;
+  width: 840px;
+}
+
+section#content {
+  padding: 10px;
+}
+

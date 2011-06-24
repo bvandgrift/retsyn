@@ -3,21 +3,14 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Public key</th>
+    <th>Created</th>
+    <th>Admin?</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.name %></td>
-    <td><%= user.public_key %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<%= render @users %>
 </table>
 
 <br />

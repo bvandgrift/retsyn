@@ -6,11 +6,7 @@ class LocksmithMiddleware
   end
 
   def call(env)
-    require 'pp'
-    pp env
-    puts "Received client cert: \n#{env['SSL_CLIENT_CERT']}"
-    
-    env['CLIENT_PUBLIC_KEY'] = env["SSL_CLIENT_CERT"] #extract_public_key(env)
+    # env['CLIENT_PUBLIC_KEY'] = env["SSL_CLIENT_CERT"] #extract_public_key(env)
     
     @app.call(env)
   end

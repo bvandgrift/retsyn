@@ -17,7 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :public_key %><br />
-    <%= f.text_field :public_key %>
+    <%= f.text_area :public_key, :cols => 66 %>
+  </div>
+  <div class="field">
+    <%= f.check_box :admin %>
+    <%= f.label :admin %>
   </div>
   <div class="actions">
     <%= f.submit %>

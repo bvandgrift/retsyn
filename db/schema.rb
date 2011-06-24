@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110401185029) do
+ActiveRecord::Schema.define(:version => 20110624164750) do
 
   create_table "reports", :force => true do |t|
     t.string   "title",                 :null => false
@@ -23,11 +23,22 @@ ActiveRecord::Schema.define(:version => 20110401185029) do
     t.datetime "raw_file_updated_at"
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "name",                       :null => false
-    t.string   "public_key", :limit => 1024, :null => false
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "users", :force => true do |t|
+    t.string   "name",                                          :null => false
+    t.string   "public_key", :limit => 2048,                    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "admin",                      :default => false
   end
 
   add_index "users", ["public_key"], :name => "index_users_on_public_key", :length => {"public_key"=>255}

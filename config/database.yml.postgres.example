@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  username: root
+  password:
+  pool: 5
+  timeout: 5000
+
+development:
+  database: retsyn 
+  <<: *default
+
+test: &test
+  database: retsyn_test
+  <<: *default
+
+production:
+  database: retsyn_production
+  <<: *default
+
+cucumber:
+  <<: *test

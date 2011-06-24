@@ -7,10 +7,11 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  
-<p class="welcome">Welcome, <%= current_user.name %></p>
-
-<%= yield %>
-
+  <section id="heading">
+    <p class="welcome">Welcome, <%= current_user.name %></p>
+  </section>
+  <section id="content">
+    <%= yield %>
+  </section>
 </body>
 </html>

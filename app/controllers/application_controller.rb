@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user
   def current_user
-    session[:user] ||= User.find_by_public_key(request.env['CLIENT_PUBLIC_KEY'])
+    session[:current_user_id] ||= User.find_by_public_key(request.env['SSL_CLIENT_CERT'])
   end
 end

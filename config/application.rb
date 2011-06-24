@@ -23,13 +23,7 @@ module Retsyn
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
     
-    config.middleware.use "LocksmithMiddleware"
+    #config.middleware.use "LocksmithMiddleware"
     config.autoload_paths << File.join(config.root, "lib")
-    
-    config.action_controller.session_store = :active_record_store
-    config.action_controller.session = {
-       :session_key => '_retsyn_because_its_funny',
-       :secret      => '802eff3a31d0070ce9497e8aedc3dfb19cf6e83fa3f7150bb68950211cf0904305c12db93cb9b08d3cb706042c58f417db9b816d382c0e1a6314dd68fb192190'
-     }
   end
 end
