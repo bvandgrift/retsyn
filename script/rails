@@ -25,6 +25,7 @@ module Rails
                  File.open("certs/server.key").read),
           :SSLCertificate => OpenSSL::X509::Certificate.new(
                  File.open("certs/server.pem").read),
+          :SSLCACertificateFile => 'certs/ca/retsyn-ca.pem',
           :SSLCertName => [["CN", WEBrick::Utils::getservername]]
       })
     end

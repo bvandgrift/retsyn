@@ -7,7 +7,7 @@ class LocksmithMiddleware
 
   def call(env)
     require 'pp'
-    #pp env
+    pp env
     puts "Received client cert: \n#{env['SSL_CLIENT_CERT']}"
     
     env['CLIENT_PUBLIC_KEY'] = env["SSL_CLIENT_CERT"] #extract_public_key(env)
@@ -16,16 +16,7 @@ class LocksmithMiddleware
   end
 
   private
-  
-  # def extract_public_key(env)
-  #   cert_string = env["SSL_CLIENT_CERT"].empty? ? anonymous_cert : env["SSL_CLIENT_CERT"]
-  #   # 
-  #   # cert_string = env["SSL_CLIENT_CERT"].empty? ? anonymous_cert : env["SSL_CLIENT_CERT"]
-  #   # return unless cert_string
-  #   # certificate = OpenSSL::X509::Certificate.new(cert_string)
-  #   # certificate.public_key.to_s if certificate
-  # end
-  
+    
   def anonymous_cert
     return <<-ENDKEY.gsub(/^ */, '')
       -----BEGIN CERTIFICATE-----

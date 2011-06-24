@@ -8,10 +8,6 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Retsyn
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
-
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
 
@@ -21,19 +17,7 @@ module Retsyn
 
     # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
-
-    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
-    # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
-
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
-
-    # JavaScript files you want as :defaults (application.js is always included).
-    # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
-
-    # Configure the default encoding used in templates for Ruby 1.9.
+    config.time_zone = 'Eastern Time (US & Canada)'
     config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
@@ -41,5 +25,11 @@ module Retsyn
     
     config.middleware.use "LocksmithMiddleware"
     config.autoload_paths << File.join(config.root, "lib")
+    
+    config.action_controller.session_store = :active_record_store
+    config.action_controller.session = {
+       :session_key => '_retsyn_because_its_funny',
+       :secret      => '802eff3a31d0070ce9497e8aedc3dfb19cf6e83fa3f7150bb68950211cf0904305c12db93cb9b08d3cb706042c58f417db9b816d382c0e1a6314dd68fb192190'
+     }
   end
 end
